@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:the49="https://schemas.the49.com/dotnet/2023/maui"
+             x:Class="PContactos.Inicio"
+             Title="Inicio"
+              Shell.BackgroundColor="#F7CD3A">
+    <Shell.TitleView>
+        <HorizontalStackLayout VerticalOptions="Fill" HorizontalOptions="CenterAndExpand">
+            <Label
+            Text="Phonebook"
+            TextColor="White"
+            VerticalTextAlignment="Center"
+            HorizontalTextAlignment="Center"
+            VerticalOptions="Center"
+            HeightRequest="50"
+            FontSize="25" />
+        </HorizontalStackLayout>
+    </Shell.TitleView>
+
+
+    <Grid>
+        <VerticalStackLayout>
+            <!--Contacts Text, title-->
+
+            <VerticalStackLayout>
+                <SearchBar 
+                    x:Name="searchBar" 
+                    Placeholder="Buscar..." 
+                    Margin="10,10,10,0" 
+                    TextChanged="Buscar"/>
+
+            <Label 
+                    Text="Contactos"
+                    FontSize="22"
+                    FontAttributes="Bold" 
+                    Margin="10,10,0,10"/>
+
+
+            </VerticalStackLayout>
+
+
+
+
+
+
+
+
+
+
+            <!-- Contacts List -->
+            <ScrollView VerticalScrollBarVisibility="Always" >
+                <CollectionView x:Name="contactsList"
+                    EmptyView="Sin datos"            
+                    SelectionMode="Single"
+                     SelectionChanged="SeleccionarContacto">
+                    
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <HorizontalStackLayout>
+                                <Frame Margin="40,5,0,5" CornerRadius="100" BackgroundColor="White" Padding="0" HeightRequest="40" WidthRequest="40" HasShadow="False" BorderColor="Transparent">
+
+                                    <Image  Source="{Binding ContactPicture}" WidthRequest="100"  />
+                                </Frame>
+                                <Label Text="{Binding Name}" VerticalOptions="Center" Margin="15,0,0,0" WidthRequest="250"/>
+                            </HorizontalStackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </ScrollView>
+
+        </VerticalStackLayout>
+
+        
+
+        
+        
+        <!-- Button to add a contact -->
+        
+        <Button Text="+"
+        FontSize="Large"
+       
+        WidthRequest="50" 
+         CornerRadius="20"
+        BackgroundColor="#F7CD3A"
+        TextColor="White"
+        HorizontalOptions="End"
+        VerticalOptions="End"
+        Margin="0,0,20,20"
+        HeightRequest="45"
+        Clicked="addContactButton_Clicked"        
+        x:Name="CircularButton"
+        Padding="0,0,0,0"/>
+       
+
+    </Grid>
+</ContentPage>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PContactos.PerfilContacto"
+             
+             Title="">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Editar" Order="Secondary" x:Name="Edit" Clicked="Editar" />
+        <ToolbarItem Text="Eliminar" Order="Secondary" x:Name="Delete" Clicked="Deletee"/>
+
+    </ContentPage.ToolbarItems>
+
+
+    <VerticalStackLayout>
+
+
+
+
+        <VerticalStackLayout>
+
+
+            <Frame  Margin="0,30,0,5" CornerRadius="500" BackgroundColor="White" Padding="0" HeightRequest="100" WidthRequest="100" HasShadow="False" BorderColor="Transparent">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="icon" Tapped="aggImagen"  />
+                </Frame.GestureRecognizers>
+                <Image x:Name="contactImage"  Source="{Binding ContactPicture}" WidthRequest="100" Aspect="AspectFill" />
+            </Frame>    
+
+
+
+            <Label x:Name="name" 
+                   HorizontalOptions="Center" 
+                   Text="{Binding Name}"
+                   FontSize="25" 
+                   FontAttributes="Bold" 
+                   />
+
+            <Label x:Name="occupation" HorizontalOptions="Center" Text="{Binding Occupation}"
+                FontSize="18"  
+                />
+
+            <BoxView BackgroundColor="#F7CD3A" WidthRequest="250" HeightRequest="0.5" Margin="0,30,0,50"/>
+
+            <HorizontalStackLayout VerticalOptions="Start" HorizontalOptions="Center">
+
+
+
+                <VerticalStackLayout>
+                    <Button Text=""
+                    FontFamily="fa-regular-400" 
+                   FontSize="Large"
+                   CornerRadius="{Binding Source={x:Reference Call}, Path=HeightRequest}"
+                   BackgroundColor="#F7CD3A"
+                   TextColor="Gray"
+                    Clicked="LlamarClick"
+                   HorizontalOptions="End"
+                   VerticalOptions="End"
+                   Margin="0,0,80,0"
+                   HeightRequest="60"
+                   WidthRequest="60"
+                  
+                   x:Name="Call"
+                   Padding="0,0,0,0"/>
+
+                    <Label Text="Llamar" Margin="14,10,0,0" FontSize="20" FontAttributes="Bold"/>
+                </VerticalStackLayout>
+
+
+
+                <VerticalStackLayout>
+                    <Button Text=""
+                        FontFamily="fa-regular-400" 
+                        FontSize="Large"
+                        CornerRadius="{Binding Source={x:Reference Message}, Path=HeightRequest}"
+                        BackgroundColor="#F7CD3A"
+                        TextColor="Gray"
+                        Clicked="Mensaje"
+                        HorizontalOptions="End"
+                        VerticalOptions="End"
+                        Margin="0,0,10,0"
+                        HeightRequest="60"
+                        WidthRequest="60"
+                        x:Name="Message"
+                        Padding="0,0,0,0"/>
+
+                    <Label Text="Mensaje" Margin="14,10,0,0" FontSize="20" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                </VerticalStackLayout>
+            </HorizontalStackLayout>
+
+            <Frame Margin="50,20,50,0" Padding="20">
+
+                <HorizontalStackLayout>
+                    <Label x:Name="phoneIcon" TextColor="Gray" FontFamily="fa-solid-900" FontSize="20" VerticalOptions="Center"/>
+
+                    <Label Margin="20,0,0,0" TextColor="Gray" x:Name="phoneNumber" Text="{Binding PhoneNumber}" FontSize="20" WidthRequest="221"/>
+                </HorizontalStackLayout>
+
+
+            </Frame>
+
+            <Frame Margin="50,20,50,0" Padding="20">
+
+                <HorizontalStackLayout>
+                    <Label x:Name="cityIcon" TextColor="Gray" FontFamily="fa-solid-900" FontSize="20" VerticalOptions="Center"/>
+
+                    <Label Margin="20,0,0,0" TextColor="Gray" x:Name="address" Text="{Binding Address}"  FontSize="20" WidthRequest="221"/>
+                </HorizontalStackLayout>
+
+
+            </Frame>
+
+            <Frame Margin="50,20,50,0" Padding="20">
+
+                <HorizontalStackLayout>
+                    <Label x:Name="mailIcon" TextColor="gray"  FontFamily="fa-solid-900" FontSize="20" VerticalOptions="Center"/>
+
+                    <Label Margin="20,0,0,0" TextColor="gray" x:Name="email" Text="{Binding Email}"   FontSize="20" WidthRequest="221"/>
+                </HorizontalStackLayout>
+
+
+            </Frame>
+        </VerticalStackLayout>
+
+
+
+    </VerticalStackLayout>
+</ContentPage>
